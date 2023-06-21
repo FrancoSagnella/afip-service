@@ -11,6 +11,7 @@
 	<groupId>com.example.correoargentino</groupId>
 	<artifactId>afip-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
 	<name>afip-service</name>
 	<description>Service para consumir informacion del padron de afip</description>
 	<properties>
@@ -20,7 +21,7 @@
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
+			<artifactId>spring-boot-starter-web-services</artifactId>
 		</dependency>
 
 		<dependency>
@@ -62,6 +63,12 @@
 			<scope>test</scope>
 		</dependency>
 
+		<!--Dependencia para consumo de SOAP-->
+		<dependency>
+			<groupId>org.glassfish.jaxb</groupId>
+			<artifactId>jaxb-runtime</artifactId>
+		</dependency>
+
 	</dependencies>
 
 	<build>
@@ -70,6 +77,42 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+
+			<plugin>
+				<groupId>org.jvnet.jaxb2.maven2</groupId>
+				<artifactId>maven-jaxb2-plugin</artifactId>
+				<version>0.14.0</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<schemaLanguage>WSDL</schemaLanguage>
+					<generateDirectory>${project.basedir}/src/main/java</generateDirectory>
+					<generatePackage>com.example.correoargentino.afipservice.wsdl</generatePackage>
+					<schemas>
+						<schema>
+							<!--Esta URL debe ser la del WSDL de AFIP-->
+							<!--WSDL de Testing-->
+							<url>https://awshomo.afip.gov.ar/sr-padron/webservices/personaServiceA4?WSDL</url>
+							<!--WSDL de Producción-->
+							<!--<url>https://aws.afip.gov.ar/sr-padron/webservices/personaServiceA4?WSDL</url>-->
+						</schema>
+					</schemas>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>19</source>
+					<target>19</target>
+				</configuration>
+			</plugin>
+
 		</plugins>
 	</build>
 
