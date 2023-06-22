@@ -69,6 +69,11 @@
 			<artifactId>jaxb-runtime</artifactId>
 		</dependency>
 
+		<!--<dependency>
+			<groupId>wsdl4j</groupId>
+			<artifactId>wsdl4j</artifactId>
+		</dependency>-->
+
 	</dependencies>
 
 	<build>
@@ -104,6 +109,7 @@
 					</schemas>
 				</configuration>
 			</plugin>
+
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -112,6 +118,38 @@
 					<target>19</target>
 				</configuration>
 			</plugin>
+
+			<!--<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>jaxb2-maven-plugin</artifactId>
+				<version>3.1.0</version>
+				<executions>
+					<execution>
+						<id>xjc</id>
+						<goals>
+							<goal>xjc</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<sources>
+						<source>src/main/resources/xsd/awshomo.afip.gov.ar_sr-padron_webservices_personaServiceA4_WSDL.xml</source>
+					</sources>
+					<packageName>com.example.correoargentino.afipservice.wsdl</packageName>
+				</configuration>
+				<dependencies>
+					<dependency>
+						<groupId>org.glassfish.jaxb</groupId>
+						<artifactId>jaxb-xjc</artifactId>
+						<version>4.0.2</version>
+					</dependency>
+					<dependency>
+						<groupId>com.sun.activation</groupId>
+						<artifactId>jakarta.activation</artifactId>
+						<version>1.2.2</version>
+					</dependency>
+				</dependencies>
+			</plugin>-->
 
 		</plugins>
 	</build>
