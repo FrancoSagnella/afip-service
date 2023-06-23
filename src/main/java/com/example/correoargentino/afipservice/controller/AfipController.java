@@ -19,13 +19,14 @@ import java.awt.*;
 @RequestMapping(value = "v1/afip", produces = MediaType.APPLICATION_JSON_VALUE)
 public class AfipController {
 
-    private final AfipService afipService;
+    //private final AfipService afipService;
     private final SoapClient soapClient;
 
+    // Para realizar pruebas: https://www.afip.gob.ar/ws/ws_sr_padron_a4/datos-prueba-padron-a4.txt
     @PostMapping("")
-    public ResponseEntity<AfipResponse> payment(@RequestBody AfipRequest request){
+    public ResponseEntity<?> getPersona(@RequestBody AfipRequest request){
         log.info("executing afip post");
-        var response = afipService.getData(request.getCuit_cuil());
+        var response = soapClient.getPersona(request);
         return ResponseEntity.ok(response);
     }
 

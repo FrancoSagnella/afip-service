@@ -10,5 +10,5 @@ import lombok.Setter;
 @Getter
 @Setter
 public class AfipRequest {
-    private String cuit_cuil;
+    private long cuit_cuil;
 }

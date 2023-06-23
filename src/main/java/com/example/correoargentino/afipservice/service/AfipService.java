@@ -8,6 +8,7 @@ public class AfipService {
 
     //Este servicio deberia comunicarse con el servicio de AFIP por SOAP
     public AfipResponse getData (String cuit_cuil){
-        return new AfipResponse("retorno algo");
+        AfipResponse afipResponse = new AfipResponse();
+        return afipResponse;
     }
 }

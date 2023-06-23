@@ -1,14 +1,25 @@
 package com.example.correoargentino.afipservice.response;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class AfipResponse {
-    private String respuesta;
+    private long id_usuario;
+    private String nombre;
+    private String apellido;
+    private String dni;
+    private long cuit;
+    private String telefono;
+    private String provincia;
+    private String localidad;
+    private String direccion;
+    private String codigo_postal;
+    private String rubro;
+    private String condicion_impositiva;
+    private long id_cuenta;
+
 }
