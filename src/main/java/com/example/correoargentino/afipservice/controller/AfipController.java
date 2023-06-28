@@ -7,11 +7,10 @@ import com.example.correoargentino.afipservice.service.AfipService;
 import com.example.correoargentino.afipservice.service.SoapClient;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.awt.*;
 
 @Slf4j
 @AllArgsConstructor

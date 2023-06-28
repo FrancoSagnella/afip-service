@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.oxm.jaxb.Jaxb2Marshaller;
 
+
 @Configuration
 public class SoapConfig {
     /*Esta configuración es necesaria para transformar el XML a objetos java y viceversa*/
