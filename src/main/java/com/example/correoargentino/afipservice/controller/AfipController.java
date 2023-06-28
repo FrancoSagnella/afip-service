@@ -30,9 +30,9 @@ public class AfipController {
         return ResponseEntity.ok(response);
     }
 
-    @GetMapping("/serverStatus")
-    public ResponseEntity<?> getWsStatus(){
-        var response = soapClient.getDummyResponse().getAppserver();
-        return ResponseEntity.ok(response);
-    }
+//    @GetMapping("/serverStatus")
+//    public ResponseEntity<?> getWsStatus(){
+//        var response = soapClient.getDummyResponse().getAppserver();
+//        return ResponseEntity.ok(response);
+//    }
 }
