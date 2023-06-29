@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
 @ControllerAdvice
 @Order(Ordered.HIGHEST_PRECEDENCE)
 public class GlobalExceptionHandler {
-//    @ExceptionHandler(value = RuntimeException.class)
+    @ExceptionHandler(value = RuntimeException.class)
     protected ResponseEntity<ErrorResponse> runtimeExceptionHandler(RuntimeException ex){
         return new ResponseEntity<>(
                 new ErrorResponse("BAD_REQUEST",
